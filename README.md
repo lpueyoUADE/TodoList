@@ -69,19 +69,7 @@ todolist/
 
 ### 1. Ejecutar el backend
 
-Desde la raíz del proyecto, ejecutar:
-
-```bash
-./mvnw spring-boot:run
-```
-
-En Windows, también se puede utilizar:
-
-```powershell
-.\mvnw.cmd spring-boot:run
-```
-
-Si no se cuenta con Maven Wrapper, ejecutar `mvn spring-boot:run` teniendo Maven instalado.
+Levantar el proyecto desde Visual Code.
 
 El backend estará disponible en:
 
