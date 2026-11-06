@@ -60,6 +60,50 @@ button {
   background-color: lightblue;
 }
 
+.cookies {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 25px;
+  background-color: #f4f6f8;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.cookies h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.cookies-botones {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.cookies-botones button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #2563eb;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.cookies-botones button:hover {
+  background-color: #1d4ed8;
+}
+
+.cookies-mensaje {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #dcfce7;
+  color: #166534;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
 @media (max-width: 600px) {
   .contenedor {
     width: 100%;

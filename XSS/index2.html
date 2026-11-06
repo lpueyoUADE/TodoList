@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo XSS</title>
+    <style>
+        body {
+            background-color: lightgray;
+            font-family: sans-serif;
+            color: white;
+            font-size: 1.2em;
+            padding-left: 50px;
+        }
+
+        a {
+            color: red;
+        }
+    </style>
+       
+</head>
+<body>
+    <h1>Demo XSS</h1>
+    <h2>Buscador</h2>
+
+    <p id="resultado"></p>
+
+    <a href="index2.html?q=<img src=x onerror=alert(localStorage.getItem('token'))>">
+        Hacé Click y aprobá automaticamente!
+    </a>
+
+    <script>
+        /*
+        Para que el ataque funcione hay 2 partes clave:
+        
+        1. La aplicación debe estar abierta a la inserción de código malicioso.
+            No sanitizar datos que provienen de fuentes externas (APIs, links, etc).
+            ej: usar InnerHTML inserta lo que recibe sin ninguna validación extra.
+
+        2. Los datos sensibles están almacenados en un medio con acceso desde js
+            ej: local y sessionStorage.
+            
+        Si el usuario usa el link, se ejecuta un código malicioso.
+        Este código puede hacer un fecth a un servidor que controla el atacante,
+        robando efectivamente los datos del usuario.
+        */
+        let parametros = new URLSearchParams(window.location.search);
+
+        let busqueda = parametros.get("q");
+
+        document.querySelector("#resultado").innerHTML = "Buscaste: " + busqueda;  
+    </script>
+
+</body>
+</html>
